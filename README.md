@@ -70,6 +70,7 @@ As sparrow is flexible tool with out of the box configuration facilities you may
       build mysql-5.7.13
     </targest>
 
+    $ sparrow task run minoca/lamp
 
 ## Running tests
 
@@ -87,6 +88,8 @@ As sparrow is flexible tool with out of the box configuration facilities you may
       test perl-5.20.1
       test mysql-5.7.13
     </targest>
+
+    $ sparrow task run minoca/lamp-test
 
 ## Running sequence of builds:
 
@@ -119,6 +122,18 @@ As sparrow is flexible tool with out of the box configuration facilities you may
     ]
 
     $ sparrow box run tasks.json
+
+
+## Running by cron
+
+With `--cron` flag sparrow suppress a normal output and only emit report on unsuccessful exit code
+
+    $ sparrow task run minoca/lamp-test --cron
+
+## Running builds by ssh
+
+Take a look at [Sparrowdo](http://github.com/melezhik/sparrowdo/) - tool to run sparrow plugins over ssh ( and even more! ).
+
 
 # Author
 
