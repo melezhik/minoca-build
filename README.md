@@ -44,6 +44,8 @@ Or ( probably better as could be set once ) create a sparrow task:
     arch=x86
 
 
+    $ sparrow task run minoca/builder --param action=build-os
+
 # Author
 
 [Alexey Melezhik](mailto:melezhik@gmail.com)
