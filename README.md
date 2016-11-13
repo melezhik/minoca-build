@@ -20,13 +20,13 @@ Minoca OS builder.
 
 These setting should be defined or plugin use default values:
 
-
-    | Environment Variable | Default Value |
-    +----------------------+---------------+
-    | SRCROOT              | /src/         |
-    | DEBUG                | dbg           |
-    | ARCH                 | x86           |
-    +--------------------------------------+
+    +----------------------+---------------------------+
+    | Variable             | Default Value             |
+    +----------------------+---------------------------+
+    | SRCROOT              | /src                      |
+    | DEBUG                | dbg                       |
+    | ARCH                 | x86                       |
+    +--------------------------------------------------+
 
 
 To override default settings you do:
