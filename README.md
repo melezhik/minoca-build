@@ -46,6 +46,80 @@ Or ( probably better as could be set once ) create a sparrow task:
 
     $ sparrow task run minoca/builder --param action=build-os
 
+
+# Custom builds 
+
+As sparrow is flexible tool with out of the box configuration facilities you may create a custom Minoca builds upon it:
+
+
+## Build a dedicated packages:
+
+
+    # using plg run command:
+    $ sparrow plg run minoca-build --param action=build-os,build-perl-5.20.1,build-nginx-1.10.1
+
+
+    # using task:
+
+    $ sparrow task add minoca lapm minoca-build # Linux/Apache/Mysql/Perl
+    $ sparrow task ini minoca/lamp
+
+    <targets>
+      build httpd-2.4.0
+      build perl-5.20.1
+      build mysql-5.7.13
+    </targest>
+
+
+## Running tests
+
+    # using plg run command:
+    $ sparrow plg run minoca-build --param action=test-perl-5.20.1,test-nginx-1.10.1
+
+
+    # using task:
+
+    $ sparrow task add minoca lapm-test minoca-build # Linux/Apache/Mysql/Perl
+    $ sparrow task ini minoca/lamp-test
+
+    <targets>
+      test httpd-2.4.0
+      test perl-5.20.1
+      test mysql-5.7.13
+    </targest>
+
+## Running sequence of builds:
+
+
+    $ nano tasks.json
+
+    [
+ 
+      {
+        "task" : "build-os",
+        "plugin" : "minoca-build",
+        "data" : {
+          "srcroot"   => "/src",
+          "arch"      => "x86", 
+          "debug"     => "dbg",
+          "action"    => "build-os"
+        }
+      },
+      {
+        "task" : "build-perl",
+        "plugin" : "minoca-build",
+        "data" : {
+          "srcroot"   => "/src",
+          "arch"      => "x86", 
+          "debug"     => "dbg",
+          "action"    => "build-perl-5.20.1"
+        }
+      },
+ 
+    ]
+
+    $ sparrow box run tasks.json
+
 # Author
 
 [Alexey Melezhik](mailto:melezhik@gmail.com)
