@@ -1,11 +1,21 @@
+my $target = config()->{target} || [];
 my @targets;
 
-if (config()->{action}){
-  @targets = map { /(.*?)-(.*)/ and [ $1, $2 ] } , split ',', @{config()->{action}}
+if (ref $target eq 'ARRAY') {
 
-}else{
+  @targets = map { /(.*?)-(.*)/ and [ $1, $2 ] }  @{$target}
+
+}else {
+
+  @targets = map { /(.*?)-(.*)/ and [ $1, $2 ] }  split ',', $target;
 
 }
 
-for my $action (){
+for my $t (@targets) {
+
+  my $action = $t->[0];
+  my $thing  = $t->[1];
+
+  run_story($action, { thing => $thing })
+
 }

@@ -57,11 +57,11 @@ As sparrow is flexible tool with out of the box configuration facilities you may
 
     # using plg run command:
     $ sparrow plg run minoca-build --param target=build-os,build-perl-5.20.1,build-nginx-1.10.1
-
+    $ sparrow plg run minoca-build --param target=build-perl-5.20.1,test-perl-5.20.1
 
     # using task:
 
-    $ sparrow task add minoca lapm minoca-build # Linux/Apache/Mysql/Perl
+    $ sparrow task add minoca lamp minoca-build # Linux/Apache/Mysql/Perl stack
     $ sparrow task ini minoca/lamp
 
       target build-httpd-2.4.0
@@ -78,7 +78,7 @@ As sparrow is flexible tool with out of the box configuration facilities you may
 
     # using task:
 
-    $ sparrow task add minoca lapm-test minoca-build # Linux/Apache/Mysql/Perl
+    $ sparrow task add minoca lamp-test minoca-build # Linux/Apache/Mysql/Perl stack
     $ sparrow task ini minoca/lamp-test
 
      target test httpd-2.4.0
