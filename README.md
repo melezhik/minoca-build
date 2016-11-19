@@ -13,8 +13,9 @@ Minoca OS builder.
 
     $ sparrow plg run minoca-build --param target=build-os # build minoca OS
     $ sparrow plg run minoca-build --param target=build-perl-5.20.1 # build Perl package
-    $ sparrow plg run minoca-build --param target=show-targets # show available build targets
     $ sparrow plg run minoca-build --param target=test-perl-5.20.1 # test Perl package
+    $ sparrow plg run minoca-build --param target=build-perl-5.20.1,test-perl-5.20.1 # build and test 
+    $ sparrow plg run minoca-build --param target=show-targets # show available targets list
 
 # Custom configuration
 
@@ -39,9 +40,9 @@ Or ( probably better as could be set once ) create a sparrow task:
     $ sparrow task add minoca builder minoca-build
     $ sparrow task ini minoca/builder
     
-    srcroot=/my/src/root
-    debug=dbg
-    arch=x86
+    srcroot = /my/src/root
+    debug   = dbg
+    arch    = x86
 
 
     $ sparrow task run minoca/builder --param target=build-os
