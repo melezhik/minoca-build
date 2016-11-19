@@ -3,11 +3,11 @@ my @targets;
 
 if (ref $target eq 'ARRAY') {
 
-  @targets = map { /(.*?)-(.*)/ and [ $1, $2 ] }  @{$target}
+  @targets = map { [ /(.*?)-(.*)/ ] }  @{$target}
 
 }else {
 
-  @targets = map { /(.*?)-(.*)/ and [ $1, $2 ] }  split ',', $target;
+  @targets = map { [ /(.*?)-(.*)/ ] }  split ',', $target;
 
 }
 
