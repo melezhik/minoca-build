@@ -29,6 +29,8 @@ Now you are free to run builds:
     $ sparrow plg run minoca-build --param target=build-perl-5.20.1,test-perl-5.20.1 # build and test 
     $ sparrow plg run minoca-build --param target=list-targets # show available target list
 
+![minoca build report](https://raw.githubusercontent.com/melezhik/minoca-build/master/sparrow-minoc-build.png)
+
 # Custom configuration
 
 These are default settings for minoca build environment:
