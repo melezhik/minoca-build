@@ -24,7 +24,7 @@ These setting should be defined or plugin use default values:
     +----------------------+---------------------------+
     | Variable             | Default Value             |
     +----------------------+---------------------------+
-    | SRCROOT              | /src                      |
+    | SRCROOT              | ~/src                     |
     | DEBUG                | dbg                       |
     | ARCH                 | x86                       |
     +--------------------------------------------------+
