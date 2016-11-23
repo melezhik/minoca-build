@@ -80,7 +80,7 @@ Or using sparrow tasks:
       target build-nano-2.2.6
 
   
-    $ sparrow task run minoca/httpd
+    $ sparrow task run minoca/nano
 
 ## Running none build targets
 
