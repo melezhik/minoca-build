@@ -27,11 +27,11 @@ Now you are free to run builds:
     $ sparrow plg run minoca-build --param target=build-perl-5.20.1 # build Perl package
     $ sparrow plg run minoca-build --param target=test-perl-5.20.1 # test Perl package
     $ sparrow plg run minoca-build --param target=build-perl-5.20.1,test-perl-5.20.1 # build and test 
-    $ sparrow plg run minoca-build --param target=show-targets # show available targets list
+    $ sparrow plg run minoca-build --param target=list-targets # show available target list
 
 # Custom configuration
 
-These setting should be defined or plugin use default values:
+These are default settings for minoca build environment:
 
     +----------------------+---------------------------+
     | Variable             | Default Value             |
@@ -52,9 +52,9 @@ Or ( probably better as could be set once ) create a sparrow task:
     $ sparrow task add minoca builder minoca-build
     $ sparrow task ini minoca/builder
     
-    srcroot = /my/src/root
-    debug   = dbg
-    arch    = x86
+      srcroot = /my/src/root
+      debug   = dbg
+      arch    = x86
 
 
     $ sparrow task run minoca/builder --param target=build-os
@@ -62,43 +62,51 @@ Or ( probably better as could be set once ) create a sparrow task:
 
 # Custom builds 
 
-As sparrow is flexible tool with out of the box configuration facilities you may create a custom Minoca builds upon it:
+You may define custom builds with either command line parameters.
 
 
-## Build a dedicated packages:
+    # Build a apache httpd server
+    $ sparrow plg run minoca-build --param target=build-apr-util-1.5.4,build-apr-1.5.1,build-httpd-2.4.20
 
+Or using sparrow tasks:
 
-    # using plg run command:
-    $ sparrow plg run minoca-build --param target=build-os,build-perl-5.20.1,build-nginx-1.10.1
-    $ sparrow plg run minoca-build --param target=build-perl-5.20.1,test-perl-5.20.1
+    $ sparrow task add minoca httpd minoca-build # build apache httpd server
+    $ sparrow task ini minoca/httpd
 
-    # using task:
+      target build-apr-util-1.5.4
+      target build-apr-1.5.1
+      target build-httpd-2.4.20
+  
+    $ sparrow task run minoca/httpd
 
-    $ sparrow task add minoca lamp minoca-build # Linux/Apache/Mysql/Perl stack
-    $ sparrow task ini minoca/lamp
+## Running none build targets
 
-      target build-httpd-2.4.0
-      target build-perl-5.20.1
-      target build-mysql-5.7.13
+Usually all you need is to build a package, but if you run other some specific targets:
 
-    $ sparrow task run minoca/lamp
+    # running tests against third party Perl:
+    $ sparrow plg run minoca-build --param target=test-perl-5.20.1
 
-## Running tests
+    # or with task:
 
-    # using plg run command:
-    $ sparrow plg run minoca-build --param targets=test-perl-5.20.1,test-nginx-1.10.1
+    $ sparrow task add minoca perl-test minoca-build
+    $ sparrow task ini minoca/perl-test
 
+      target test perl-5.20.1
 
-    # using task:
+    $ sparrow task run minoca/perl-test
 
-    $ sparrow task add minoca lamp-test minoca-build # Linux/Apache/Mysql/Perl stack
-    $ sparrow task ini minoca/lamp-test
+## Building os
 
-     target test httpd-2.4.0
-     target test perl-5.20.1
-     target test mysql-5.7.13
+There is dedicate target for it called 'build-os':
 
-    $ sparrow task run minoca/lamp-test
+    $ sparrow plg run minoca-build --param target=build-os
+
+## List available targets
+
+To list all targets you can run:
+
+    $ sparrow plg run minoca-build --param target=list-targets
+
 
 ## Running sequence of builds:
 
@@ -114,7 +122,7 @@ As sparrow is flexible tool with out of the box configuration facilities you may
           "srcroot"   => "/src",
           "arch"      => "x86", 
           "debug"     => "dbg",
-          "target"    => "build-os"
+          "target"    => "build-curl-7.41.0"
         }
       },
       {
@@ -124,7 +132,7 @@ As sparrow is flexible tool with out of the box configuration facilities you may
           "srcroot"   => "/src",
           "arch"      => "x86", 
           "debug"     => "dbg",
-          "action"    => "build-perl-5.20.1"
+          "target"    => "build-nano-2.2.6"
         }
       },
  
@@ -137,7 +145,7 @@ As sparrow is flexible tool with out of the box configuration facilities you may
 
 With `--cron` flag sparrow suppress a normal output and only emit report on unsuccessful exit code
 
-    $ sparrow task run minoca/lamp-test --cron
+    $ sparrow task run minoca/perl-test --cron
 
 ## Running builds by ssh
 
