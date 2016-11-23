@@ -93,7 +93,7 @@ Usually all you need is to build a package, but if you run other some specific t
     $ sparrow task add minoca perl-test minoca-build
     $ sparrow task ini minoca/perl-test
 
-      target test perl-5.20.1
+      target test-perl-5.20.1
 
     $ sparrow task run minoca/perl-test
 

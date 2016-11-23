@@ -6,7 +6,7 @@ PATH=$PATH:$SRCROOT/$ARCH$DEBUG/tools/bin
 
 thing=$(story_var thing)
 
-echo -n build $thing ... ' '
+echo -n clean $thing ... ' '
 
 #echo SRCROOT: $SRCROOT
 #echo DEBUG  : $DEBUG
@@ -15,7 +15,7 @@ echo -n build $thing ... ' '
 
 
 cd $SRCROOT/third-party/build/$thing && \
-if make 1>$test_root_dir/$story_dir/make.report.txt 2>&1; then
+if make clean 1>$test_root_dir/$story_dir/make.report.txt 2>&1; then
   echo ok
 else
   echo failed
