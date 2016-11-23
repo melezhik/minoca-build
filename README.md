@@ -67,17 +67,18 @@ Or ( probably better as could be set once ) create a sparrow task:
 You may define custom builds with either command line parameters.
 
 
-    # Build a apache httpd server
-    $ sparrow plg run minoca-build --param target=build-apr-util-1.5.4,build-apr-1.5.1,build-httpd-2.4.20
+    # Build nano editor with dependencies
+    $ sparrow plg run minoca-build --param build-readline-6.3,build-ncurses-5.9,build-nano-2.2.6
 
 Or using sparrow tasks:
 
-    $ sparrow task add minoca httpd minoca-build # build apache httpd server
-    $ sparrow task ini minoca/httpd
+    $ sparrow task add minoca nano minoca-build # build apache httpd server
+    $ sparrow task ini minoca/nano
 
-      target build-apr-util-1.5.4
-      target build-apr-1.5.1
-      target build-httpd-2.4.20
+      target build-readline-6.3
+      target build-ncurses-5.9
+      target build-nano-2.2.6
+
   
     $ sparrow task run minoca/httpd
 
