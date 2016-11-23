@@ -11,6 +11,18 @@ Minoca OS builder.
 # USAGE
 
 
+Caveat. 
+
+Before running any build, you should install [Minoca Toolchain](http://www.minocacorp.com/download/minoca-tools-linux.tar.gz) binaries:
+
+    $ wget http://www.minocacorp.com/download/minoca-tools-linux.tar.gz
+    $ mkdir minoca-tools
+    $ tar -xzf minoca-tools-linux.tar.gz -C minoca-tools
+    $ PATH=$PATH:$PWD/minoca-tools/src/x86dbg/tools/bin/
+
+
+Now you are free to run builds:
+
     $ sparrow plg run minoca-build --param target=build-os # build minoca OS
     $ sparrow plg run minoca-build --param target=build-perl-5.20.1 # build Perl package
     $ sparrow plg run minoca-build --param target=test-perl-5.20.1 # test Perl package

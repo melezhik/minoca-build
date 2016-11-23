@@ -19,6 +19,7 @@ if make 1>$test_root_dir/$story_dir/make.report.txt 2>&1; then
   echo ok
 else
   echo failed
+  echo dumping make report file: $test_root_dir/$story_dir/make.report.txt
   cat $test_root_dir/$story_dir/make.report.txt
   exit 1
 fi
