@@ -4,8 +4,8 @@ Minoca OS builder.
 
 # Description
 
-This is high level wrapper of [Minoca build scripts](https://github.com/minoca/os) and should be no way
-to be treated as substitution of such. Now it's just work for me. I found this tool quite helpful in
+This is high level wrapper of [Minoca build scripts](https://github.com/minoca/os) and by no means
+to be treated as substitution of a such. Now it's just work for me. I found this tool quite helpful in
 task of automation various Minoca builds.
 
 # INSTALL
