@@ -13,7 +13,7 @@ if (ref $target eq 'ARRAY') {
   } elsif ( $target eq 'build-image' ){
     run_story('build-image');
     exit;
-  } elsif( $target eq 'list-targets' ) {
+  } elsif( $target eq 'list' ) {
     run_story('list-targets');
     exit;
   } else {

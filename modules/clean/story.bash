@@ -15,12 +15,12 @@ echo -n clean $thing ... ' '
 
 
 cd $SRCROOT/third-party/build/$thing && \
-if make clean 1>$cache_dir/make.report.txt 2>&1; then
+if make clean 1>$test_root_dir/$thing-make-clean.report.txt 2>&1; then
   echo ok
 else
   echo failed
-  echo last 10 lines at report file: $cache_dir/make.report.txt
-  tail -n 10 $cache_dir/make.report.txt
+  echo last 10 lines at report file: $test_root_dir/$thing-make-clean.report.txt
+  tail -n 10 $test_root_dir/$thing-make-clean.report.txt
   exit 1
 fi
 

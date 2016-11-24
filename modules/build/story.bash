@@ -14,13 +14,15 @@ echo -n build $thing ... ' '
 #echo PATH   : $PATH
 
 
-cd $SRCROOT/third-party/build/$thing && \
-if make 1>$cache_dir/make.report.txt 2>&1; then
+cd $SRCROOT/third-party/build/$thing || exit 1
+
+if make 1>$test_root_dir/$thing-make.report.txt 2>&1; then
   echo ok
 else
   echo failed
-  echo last 10 lines at report file: $cache_dir/make.report.txt
-  tail -n 10 $cache_dir/make.report.txt
+  echo last 10 lines at report file: $test_root_dir/$thing-make.report.txt
+  ls -l $test_root_dir/$thing-make.report.txt
+  tail -n 10 $test_root_dir/$thing-make.report.txt
   exit 1
 fi
 
