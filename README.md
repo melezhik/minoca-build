@@ -2,6 +2,11 @@
 
 Minoca OS builder.
 
+# Description
+
+This is high level wrapper of [Minoca build scripts](https://github.com/minoca/os) and should be no way
+to be treated as substitution of such. Now it's just work for me. I found this tool quite helpful in
+task of automation various Minoca builds.
 
 # INSTALL
 
@@ -9,7 +14,6 @@ Minoca OS builder.
 
 
 # USAGE
-
 
 Caveat. 
 
@@ -23,9 +27,9 @@ Before running any build, you should install [Minoca Toolchain](http://www.minoc
 
 Now you are free to run builds:
 
-    $ sparrow plg run minoca-build --param target=build-os # build minoca OS
+    $ sparrow plg run minoca-build --param target=build-os          # build minoca OS
     $ sparrow plg run minoca-build --param target=build-perl-5.20.1 # build Perl package
-    $ sparrow plg run minoca-build --param target=test-perl-5.20.1 # test Perl package
+    $ sparrow plg run minoca-build --param target=test-perl-5.20.1  # test Perl package
     $ sparrow plg run minoca-build --param target=build-perl-5.20.1,test-perl-5.20.1 # build and test 
     $ sparrow plg run minoca-build --param target=list-targets # show available target list
 
@@ -95,7 +99,7 @@ Usually all you need is to build a package, but if you run other some specific t
 
 ## Building os
 
-There is dedicate target for it called 'build-os':
+There is dedicate target for it called 'build-os', probably this should be the very first step:
 
     $ sparrow plg run minoca-build --param target=build-os
 
