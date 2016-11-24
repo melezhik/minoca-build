@@ -61,6 +61,13 @@ Or ( probably better as could be set once ) create a sparrow task:
 
     $ sparrow task run minoca/builder --param target=build-os
 
+# Copy resulted *.ipk files
+
+Every successful build results in creation of `*.ipk` file which then gets copied
+to $SRCROOT/$ARCH$DEBUG/bin/apps directory, so usually next step could be rebuilding OS image:
+
+    $ sparrow plg run minoca-build --param target=build-image
+
 
 # Custom builds 
 
@@ -68,23 +75,41 @@ You may define custom builds with either command line parameters.
 
 
     # Build nano editor with dependencies
-    $ sparrow plg run minoca-build --param build-readline-6.3,build-ncurses-5.9,build-nano-2.2.6
+    $ sparrow plg run minoca-build --param target=build-ncurses-5.9,build-readline-6.3,build-nano-2.2.6
 
 Or using sparrow tasks:
 
-    $ sparrow task add minoca nano minoca-build # build apache httpd server
+    $ sparrow task add minoca nano minoca-build # build nano editor
     $ sparrow task ini minoca/nano
 
-      target build-readline-6.3
       target build-ncurses-5.9
+      target build-readline-6.3
       target build-nano-2.2.6
 
   
     $ sparrow task run minoca/nano
 
-## Running none build targets
+# Running none build targets
 
 Usually all you need is to build a package, but if you run other some specific targets:
+
+## Building os
+
+There is dedicate target for it called 'build-os':
+
+    $ sparrow plg run minoca-build --param target=build-os
+
+## Rebuilding os image
+
+Sometimes you need to rebuild os image, usually right after you get some package built:
+
+    # Build nano editor with dependencies 
+    # and copy resulted *.ipk files to $SRCROOT/$ARCH$DEBUG/bin/apps
+
+    $ sparrow plg run minoca-build --param target=build-ncurses-5.9,build-readline-6.3,build-nano-2.2.6
+    $ sparrow plg run minoca-build --param target=build-image
+
+## Tests
 
     # running tests against third party Perl:
     $ sparrow plg run minoca-build --param target=test-perl-5.20.1
@@ -98,11 +123,23 @@ Usually all you need is to build a package, but if you run other some specific t
 
     $ sparrow task run minoca/perl-test
 
-## Building os
+## Clean
 
-There is dedicate target for it called 'build-os':
+This target cleans some already build package, this technical equivalent of `make clean`
+for given package:
 
-    $ sparrow plg run minoca-build --param target=build-os
+    # clean nano and dependencies
+    $ sparrow plg run minoca-build --param target=clean-ncurses-5.9,build-readline-6.3,build-nano-2.2.6
+
+    # or with sparrow task
+
+    $ sparrow task add minoca nano-clean minoca-build
+    $ sparrow task ini minoca/nano-clean
+
+      target clean-ncurses-5.9
+      target clean-readline-6.3
+      target clean-nano-2.2.6
+
 
 ## List available targets
 
