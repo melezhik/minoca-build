@@ -6,7 +6,7 @@ Minoca OS builder.
 
 This is high level wrapper of [Minoca build scripts](https://github.com/minoca/os) and by no means
 to be treated as substitution of a such. Now it's just work for me. I found this tool quite helpful in
-task of automation various Minoca builds.
+task of automation various Minoca builds. Here is complicated [example](https://github.com/melezhik/minoca-build/tree/master/examples/irssi.ini) for building irssi from the scratch.
 
 # INSTALL
 
