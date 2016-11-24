@@ -7,7 +7,18 @@ if (ref $target eq 'ARRAY') {
 
 }else {
 
-  @targets = map { [ /(.*?)-(.*)/ ] }  split ',', $target;
+  if ($target eq 'build-os'){
+    run_story('build-os');
+    exit;
+  } elsif ( $target eq 'build-image' ){
+    run_story('build-image');
+    exit;
+  } elsif( $target eq 'list-targets' ) {
+    run_story('list-targets');
+    exit;
+  } else {
+    @targets = map { [ /(.*?)-(.*)/ ] }  split ',', $target;
+  }
 
 }
 
