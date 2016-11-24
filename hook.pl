@@ -29,9 +29,11 @@ for my $t (@targets) {
   my $action = $t->[0];
   my $thing  = $t->[1];
 
+  (my $thing_safe_name = $thing)=~s{/}[-]g;
+
   $need_copy=1 if $action eq 'build';
 
-  run_story($action, { thing => $thing })
+  run_story($action, { thing => $thing , thing_safe_name => $thing_safe_name});
 
 }
 
