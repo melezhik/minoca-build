@@ -13,13 +13,13 @@ echo -n build image ... ' '
 
 
 cd $SRCROOT/os/images && \
-if make clean 1>$test_root_dir/$story_dir/make.report.txt 2>&1 \
-  && make 1>>$test_root_dir/$story_dir/make.report.txt 2>&1; then
+if make clean 1>$cache_dir/make.report.txt 2>&1 \
+  && make 1>>$cache_dir/make.report.txt 2>&1; then
   echo ok
 else
   echo failed
-  echo last 10 lines at report file: $test_root_dir/$story_dir/make.report.txt
-  tail -n 10 $test_root_dir/$story_dir/make.report.txt
+  echo last 10 lines at report file: $cache_dir/make.report.txt
+  tail -n 10 $cache_dir/make.report.txt
   exit 1
 fi
 
