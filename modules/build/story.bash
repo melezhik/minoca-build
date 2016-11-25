@@ -3,8 +3,10 @@ export SRCROOT=$(config srcroot)
 export ARCH=$(config arch)
 export DEBUG=$(config debug)
 PATH=$PATH:$SRCROOT/$ARCH$DEBUG/tools/bin
+verbose=$(config verbose)
 
 thing=$(story_var thing)
+
 thing_safe_name=$(story_var thing_safe_name)
 export thing
 
@@ -22,6 +24,10 @@ perl -i -p -e 's/\$\(APPS\)/$ENV{thing}/g' Makefile.new || exit 1
 
 if make -f Makefile.new 1>$test_root_dir/$thing_safe_name-make.report.txt 2>&1; then
   echo ok
+  if test "${verbose}" = "on"; then
+    cat $test_root_dir/$thing_safe_name-make.report.txt
+  fi
+
 else
   echo failed
   echo last 10 lines at report file: $test_root_dir/$thing_safe_name-make.report.txt

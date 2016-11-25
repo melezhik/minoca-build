@@ -160,6 +160,12 @@ To list all targets you can run:
 
     $ sparrow plg run minoca-build --param target=list
 
+## Show build log
+
+By default all build logs gets redirected to file and only dumped out on errors.
+If you want to see it use `verbose` option:
+
+    $ sparrow plg run minoca-build --param verbose=on
 
 ## Running sequence of builds:
 

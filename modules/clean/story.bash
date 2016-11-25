@@ -16,7 +16,7 @@ echo -n clean $thing ... ' '
 #echo PATH   : $PATH
 
 
-cd $SRCROOT/third-party/$thing || exit 1
+cd $SRCROOT/third-party/build/$thing || exit 1
 #cp Makefile Makefile.new || exit 1
 #perl -i -p -e 's/\$\(APPS\)/$ENV{thing}/g' Makefile.new || exit 1
 
