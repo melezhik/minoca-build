@@ -106,10 +106,12 @@ There is dedicate target for it called 'build-os', probably this should be the v
 
 Sometimes you need to rebuild os image, usually right after you get some package built:
 
-    # Build nano editor with dependencies 
+    # Build my hacker gear soft 
     # and copy resulted *.ipk files to $SRCROOT/$ARCH$DEBUG/bin/apps
 
     $ sparrow plg run minoca-build --param target=target=build-nano-2.2.6,build-curl-7.41.0,build-bash-4.3.30
+
+    # Now I need to rebuild by image 
     $ sparrow plg run minoca-build --param target=build-image
 
 ## Tests
