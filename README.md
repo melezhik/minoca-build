@@ -6,7 +6,7 @@ Minoca OS builder.
 
 This is high level wrapper of [Minoca build scripts](https://github.com/minoca/os) and by no means
 to be treated as substitution of a such. Now it's just work for me. I found this tool quite helpful in
-task of automation various Minoca builds. Here is complicated [example](https://github.com/melezhik/minoca-build/tree/master/examples/irssi.ini) for building irssi from the scratch.
+task of automation various Minoca builds.
 
 # INSTALL
 
@@ -78,20 +78,19 @@ to $SRCROOT/$ARCH$DEBUG/bin/apps directory, so usually next step could be rebuil
 You may define custom builds with either command line parameters.
 
 
-    # Build nano editor with dependencies
-    $ sparrow plg run minoca-build --param target=build-ncurses-5.9,build-readline-6.3,build-nano-2.2.6
+    # Build nano editor, curl and bash
+    $ sparrow plg run minoca-build --param target=build-nano-2.2.6,build-curl-7.41.0,build-bash-4.3.30
 
 Or using sparrow tasks:
 
-    $ sparrow task add minoca nano minoca-build # build nano editor
-    $ sparrow task ini minoca/nano
+    $ sparrow task add minoca hacker-gear minoca-build # build nano editor
+    $ sparrow task ini minoca/hacker-gear
 
-      target build-ncurses-5.9
-      target build-readline-6.3
       target build-nano-2.2.6
-
+      target build-curl-7.41.0
+      target build-bash-4.3.30
   
-    $ sparrow task run minoca/nano
+    $ sparrow task run minoca/hacker-gear
 
 # Running none build targets
 
@@ -110,7 +109,7 @@ Sometimes you need to rebuild os image, usually right after you get some package
     # Build nano editor with dependencies 
     # and copy resulted *.ipk files to $SRCROOT/$ARCH$DEBUG/bin/apps
 
-    $ sparrow plg run minoca-build --param target=build-ncurses-5.9,build-readline-6.3,build-nano-2.2.6
+    $ sparrow plg run minoca-build --param target=target=build-nano-2.2.6,build-curl-7.41.0,build-bash-4.3.30
     $ sparrow plg run minoca-build --param target=build-image
 
 ## Tests
@@ -132,17 +131,16 @@ Sometimes you need to rebuild os image, usually right after you get some package
 This target cleans some already build package, this technical equivalent of `make clean`
 for given package:
 
-    # clean nano and dependencies
-    $ sparrow plg run minoca-build --param target=clean-ncurses-5.9,build-readline-6.3,build-nano-2.2.6
+    # remove nano, curl and bash objects 
+    $ sparrow plg run minoca-build --param target=clean-nano-2.2.6,clean-curl-7.41.0,clean-bash-4.3.30
 
     # or with sparrow task
 
-    $ sparrow task add minoca nano-clean minoca-build
-    $ sparrow task ini minoca/nano-clean
-
-      target clean-ncurses-5.9
-      target clean-readline-6.3
+    $ sparrow task add minoca hacker-gear-clean minoca-build
+    $ sparrow task ini minoca/hacker-gear-clean
       target clean-nano-2.2.6
+      target clean-curl-7.41.0
+      target clean-bash-4.3.30
 
 
 ## List available targets
@@ -170,7 +168,7 @@ To list all targets you can run:
         }
       },
       {
-        "task" : "build-perl",
+        "task" : "build-nano",
         "plugin" : "minoca-build",
         "data" : {
           "srcroot"   => "/src",
