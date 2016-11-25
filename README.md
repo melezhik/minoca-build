@@ -81,12 +81,19 @@ You may define custom builds with either command line parameters.
 
 
     # Build nano editor, curl and bash
-    $ sparrow plg run minoca-build --param target=build-nano-2.2.6,build-curl-7.41.0,build-bash-4.3.30
+    $ sparrow plg run minoca-build \
+    --param --param target=build-zlib-1.2.8,build-readline-6.3,build-nano-2.2.6,build-curl-7.41.0,build-bash-4.3.30
 
 Or using sparrow tasks:
 
     $ sparrow task add minoca hacker-gear minoca-build # build nano editor
     $ sparrow task ini minoca/hacker-gear
+
+      # first two packages are just dependencies
+      # missed at $SRCROOT/third-party/Makefile
+
+      target build-zlib-1.2.8
+      target build-readline-6.3
 
       target build-nano-2.2.6
       target build-curl-7.41.0
