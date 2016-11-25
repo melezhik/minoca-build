@@ -168,11 +168,11 @@ To list all targets you can run:
           "srcroot"   => "/src",
           "arch"      => "x86", 
           "debug"     => "dbg",
-          "target"    => "build-curl-7.41.0"
+          "target"    => "build-os"
         }
       },
       {
-        "task" : "build-nano",
+        "task" : "build-nano-editor",
         "plugin" : "minoca-build",
         "data" : {
           "srcroot"   => "/src",
@@ -181,7 +181,16 @@ To list all targets you can run:
           "target"    => "build-nano-2.2.6"
         }
       },
- 
+      {
+        "task" : "rebuild-image",
+        "plugin" : "minoca-build",
+        "data" : {
+          "srcroot"   => "/src",
+          "arch"      => "x86", 
+          "debug"     => "dbg",
+          "target"    => "build-image"
+        }
+      }
     ]
 
     $ sparrow box run tasks.json
