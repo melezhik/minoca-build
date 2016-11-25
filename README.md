@@ -15,7 +15,7 @@ task of automation various Minoca builds.
 
 # USAGE
 
-Caveat. 
+Caveat.
 
 Before running any build, you should install [Minoca Toolchain](http://www.minocacorp.com/download/minoca-tools-linux.tar.gz) binaries:
 
@@ -32,6 +32,8 @@ Now you are free to run builds:
     $ sparrow plg run minoca-build --param target=test-perl-5.20.1  # test Perl package
     $ sparrow plg run minoca-build --param target=build-perl-5.20.1,test-perl-5.20.1 # build and test 
     $ sparrow plg run minoca-build --param target=list # show available target list
+
+Warning: when runs first time it takes for a while as OS_TOOLS/ALL_TOOLS building is time consuming.
 
 ![minoca build report](https://raw.githubusercontent.com/melezhik/minoca-build/master/sparrow-minoca-build.png)
 
