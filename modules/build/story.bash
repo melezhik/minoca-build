@@ -22,17 +22,20 @@ cd $SRCROOT/third-party || exit 1
 cp Makefile Makefile.new || exit 1
 perl -i -p -e 's/\$\(APPS\)/$ENV{thing}/g' Makefile.new || exit 1
 
-if make -f Makefile.new 1>$test_root_dir/$thing_safe_name-make.report.txt 2>&1; then
-  echo ok
-  if test "${verbose}" = "on"; then
-    cat $test_root_dir/$thing_safe_name-make.report.txt
-  fi
-
+if test "${verbose}" = "on"; then
+  make -f Makefile.new || exit 1
 else
-  echo failed
-  echo last 10 lines at report file: $test_root_dir/$thing_safe_name-make.report.txt
-  ls -l $test_root_dir/$thing_safe_name-make.report.txt
-  tail -n 10 $test_root_dir/$thing_safe_name-make.report.txt
-  exit 1
+
+  if make -f Makefile.new 1>$test_root_dir/$thing_safe_name-make.report.txt 2>&1; then
+    echo ok
+  else
+    echo failed
+    echo last 10 lines at report file: $test_root_dir/$thing_safe_name-make.report.txt
+    ls -l $test_root_dir/$thing_safe_name-make.report.txt
+    tail -n 10 $test_root_dir/$thing_safe_name-make.report.txt
+    exit 1
+  fi
+  
 fi
+
 
