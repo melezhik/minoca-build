@@ -160,6 +160,10 @@ To list all targets you can run:
 
     $ sparrow plg run minoca-build --param target=list
 
+Or narrow list by using filter:
+
+    $ sparrow plg run minoca-build --param target=list --param filter=gcc
+
 ## Show build log
 
 By default all build logs gets redirected to file and only dumped out on errors.
