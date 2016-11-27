@@ -18,15 +18,15 @@ echo -n build $thing ... ' '
 #echo PATH   : $PATH
 
 
-cd $SRCROOT/third-party || exit 1
-cp Makefile Makefile.new || exit 1
-perl -i -p -e 's/\$\(APPS\)/$ENV{thing}/g' Makefile.new || exit 1
+cd $SRCROOT/third-party/build/$thing || exit 1
+#cp Makefile Makefile.new || exit 1
+#perl -i -p -e 's/\$\(APPS\)/$ENV{thing}/g' Makefile.new || exit 1
 
 if test "${verbose}" = "on"; then
-  make -f Makefile.new || exit 1
+  make -f Makefile || exit 1
 else
 
-  if make -f Makefile.new 1>$test_root_dir/$thing_safe_name-make.report.txt 2>&1; then
+  if make -f Makefile 1>$test_root_dir/$thing_safe_name-make.report.txt 2>&1; then
     echo ok
   else
     echo failed
