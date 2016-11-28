@@ -10,7 +10,7 @@ target=$(story_var target)
 target_safe_name=$(story_var target_safe_name)
 export target
 
-echo -n build $thing ... ' '
+echo -n make $target ... ' '
 
 #echo SRCROOT: $SRCROOT
 #echo DEBUG  : $DEBUG
@@ -22,11 +22,11 @@ cd $SRCROOT/third-party || exit 1
 
 if test "${verbose}" = "on"; then
 
-  make || exit 1
+  make $target || exit 1
 
 else
 
-  if make 1>$test_root_dir/make-$target_safe_name.report.txt 2>&1; then
+  if make $target 1>$test_root_dir/make-$target_safe_name.report.txt 2>&1; then
     echo ok
   else
     echo failed

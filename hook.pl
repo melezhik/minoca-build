@@ -24,9 +24,9 @@ for my $t (@targets) {
     next;
   }
 
-  ($target_safe_name = $target )=~s{/}[-]g;
+  ($t_safe_name = $t )=~s{/}[-]g;
 
-  run_story('make', { target => $target, target_safe_name => $target_safe_name });
+  run_story('make', { target => $t, target_safe_name => $t_safe_name });
 
 }
 
