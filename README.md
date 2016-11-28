@@ -4,8 +4,8 @@ Minoca OS builder.
 
 # Description
 
-This is high level wrapper of [Minoca build scripts](https://github.com/minoca/os) and by no means
-to be treated as substitution of a such. Now it's just work for me. Minoca-build tools abstract some
+This is a high level wrapper of [Minoca build scripts](https://github.com/minoca/os) and by no means
+to be treated as substitution of a such. Now it's just work for me. Minoca-build tool abstracts some
 low level details of cooking things with `make` which could be safe way to go for unprepared user,
 but if you need to hack into process - please follow [Minoca build scripts](https://github.com/minoca/os) documentation.
 
