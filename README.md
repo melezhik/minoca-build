@@ -94,13 +94,14 @@ Usually all you need is to build a package, but if you run other some specific t
 ## Building tools
 
 Tools are required to build all other packages, so this is probably the first thing you need to do.
+
 Warning: building tools takes awhile when doing first time. Take your coffee ;-)
 
     $ sparrow plg run minoca-build --param target=all-tools   # required to build packages
 
 ## Building os
 
-There is dedicate target for it called 'os', probably this should be the very first step:
+There is dedicate target for it called 'os' to build Minoca OS.
 
     $ sparrow plg run minoca-build --param target=os
 
@@ -190,7 +191,7 @@ If you want to see it use `verbose` option:
         }
       },
       {
-        "task" : "reimage",
+        "task" : "build-new-image",
         "plugin" : "minoca-build",
         "data" : {
           "srcroot"   => "/src",
