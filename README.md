@@ -11,8 +11,19 @@ but if you need to hack into process - please follow [Minoca build scripts](http
 
 # INSTALL
 
-    $ sparrow plg install minoca-build
+## Install sparrow
 
+* Follow [sparrow](https://github.com/melezhik/sparrow) documentation if you
+want to install sparrow on none Minoca OS.
+
+* To install sparrow on minoca OS instance:
+
+    $ wget http://sparrowhub.org/minoca.sh -O - | sh
+
+## Install minoca-build sparrow plugin:
+
+    $ sparrow index update
+    $ sparrow plg install minoca-build
 
 # USAGE
 
