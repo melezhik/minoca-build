@@ -74,7 +74,7 @@ You may define custom builds with either command line parameters.
 
 
     # Build nano editor, curl and bash
-    $ sparrow plg run minoca-build --param --param target=nano-2.2.6,curl-7.41.0,bash-4.3.30
+    $ sparrow plg run minoca-build --param target=nano-2.2.6,curl-7.41.0,bash-4.3.30
 
 Or using sparrow tasks:
 
@@ -112,7 +112,7 @@ Sometimes you need to rebuild os image, usually right after you get some package
     # Build my gear soft:
     $ sparrow plg run minoca-build --param target=nano-2.2.6,curl-7.41.0,bash-4.3.30
 
-    # Now I need to rebuild by image 
+    # Now I need to rebuild the image 
     $ sparrow plg run minoca-build --param target=image
 
 ## Tests
