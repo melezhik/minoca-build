@@ -4,10 +4,10 @@ Minoca OS builder.
 
 # Description
 
-This is a high level wrapper of [Minoca build scripts](https://github.com/minoca/os) and by no means
+This is a high level wrapper of [Minoca build scripts](https://github.com/minoca/os#building-minoca-os) and by no means
 should be treated as substitution of a such. Now it *just works* for me. Minoca-build tool abstracts some
 low level details of cooking things with `make` which could be safe way to go for unprepared user,
-but if you need to hack into process - please follow [Minoca build scripts](https://github.com/minoca/os) documentation.
+but if you need to hack into process - please follow [Minoca build scripts](https://github.com/minoca/os#building-minoca-os) documentation.
 
 # INSTALL
 
