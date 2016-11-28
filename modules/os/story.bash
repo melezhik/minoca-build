@@ -3,8 +3,9 @@ export SRCROOT=$(config srcroot)
 export ARCH=$(config arch)
 export DEBUG=$(config debug)
 PATH=$PATH:$SRCROOT/$ARCH$DEBUG/tools/bin
+verbose=$(config verbose)
 
-echo -n build os ... ' '
+echo -n make os ... ' '
 
 #echo SRCROOT: $SRCROOT
 #echo DEBUG  : $DEBUG
@@ -12,13 +13,24 @@ echo -n build os ... ' '
 #echo PATH   : $PATH
 
 
-cd $SRCROOT/os && \
-if make 1>$test_root_dir/os-make.report.txt 2>&1; then
-  echo ok
+cd $SRCROOT/os || exit 1
+
+if test "${verbose}" = "on"; then
+
+  make $target || exit 1
+
 else
-  echo failed
-  echo last 10 lines at report file: $test_root_dir/os-make.report.txt
-  tail -n 10 $test_root_dir/os-make.report.txt
-  exit 1
+
+  if make $target 1>$test_root_dir/make-os.report.txt 2>&1; then
+    echo ok
+  else
+    echo failed
+    echo last 10 lines at report file: $test_root_dir/make-os.report.txt
+    ls -l $test_root_dir/make-os.report.txt
+    tail -n 10 $test_root_dir/make-os.report.txt
+    exit 1
+  fi
+
 fi
+
 
