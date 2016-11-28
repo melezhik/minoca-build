@@ -33,7 +33,7 @@ Now you are free to run builds:
     $ sparrow plg run minoca-build --param target=all-tools         # required to build packages
     $ sparrow plg run minoca-build --param target=nano-2.2.6        # build nano package
     $ sparrow plg run minoca-build --param target=nano-2.2.6-clean  # clean nano package 
-    $ sparrow plg run minoca-build --param target=nano-2.2.6,nano-2.2.6-clean # clean and the build nano
+    $ sparrow plg run minoca-build --param target=nano-2.2.6-clean,nano-2.2.6 # clean and the build nano
     $ sparrow plg run minoca-build --param target=image             # build OS image with packages built in
 
 ![minoca build report](https://raw.githubusercontent.com/melezhik/minoca-build/master/sparrow-minoca-build.png)
