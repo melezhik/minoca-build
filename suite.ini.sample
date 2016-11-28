@@ -1,4 +1,4 @@
-target build-perl-5.20.1
-target test-perl-5.20.1
-target build-nginx-1.10.1
-target test-nginx-1.10.1
+target perl-5.20.1
+target perl-5.20.1-clean
+target nginx-1.10.1
+target nginx-1.10.1-clean
