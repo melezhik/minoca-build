@@ -2,7 +2,7 @@ export SRCROOT=$(config srcroot)
 export ARCH=$(config arch)
 export DEBUG=$(config debug)
 tools_bin=$(config tools)
-export PATH=$test_root_dir/tools/:$SRCROOT/$ARCH$DEBUG/tools/bin:$PATH
+export PATH=$tools_bin:$SRCROOT/$ARCH$DEBUG/tools/bin:$PATH
 
 verbose=$(config verbose)
 

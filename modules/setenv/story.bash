@@ -7,14 +7,14 @@ tools_bin=$(config tools)
 
 mkdir -p $test_root_dir/tools
 
-test -f $SRCROOT/$ARCH$DEBUG/tools/bin/perl && mv $SRCROOT/$ARCH$DEBUG/tools/bin/perl $SRCROOT/$ARCH$DEBUG/tools/bin/perl.off
+if test -f $SRCROOT/$ARCH$DEBUG/tools/bin/perl; then
 
-for b in $(ls -1 $tools_bin|grep -v perl); do
-  ln -s -f $tools_bin/$b $test_root_dir/tools/$b
-done
+  echo "disabling" perl from $SRCROOT/$ARCH$DEBUG/tools/bin/ path:
+  mv -v $SRCROOT/$ARCH$DEBUG/tools/bin/perl $SRCROOT/$ARCH$DEBUG/tools/bin/perl.off
 
+fi
 
-export PATH=$test_root_dir/tools/:$SRCROOT/$ARCH$DEBUG/tools/bin:$PATH
+export PATH=$tools_bin:$SRCROOT/$ARCH$DEBUG/tools/bin:$PATH
 
 if test "${verbose}" = "on"; then
 
