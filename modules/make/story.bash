@@ -1,22 +1,16 @@
-
 export SRCROOT=$(config srcroot)
 export ARCH=$(config arch)
 export DEBUG=$(config debug)
-PATH=$PATH:$SRCROOT/$ARCH$DEBUG/tools/bin
+tools_bin=$(config tools)
+export PATH=$test_root_dir/tools/:$SRCROOT/$ARCH$DEBUG/tools/bin:$PATH
+
 verbose=$(config verbose)
 
 target=$(story_var target)
 
 target_safe_name=$(story_var target_safe_name)
-export target
 
 echo -n make $target ... ' '
-
-#echo SRCROOT: $SRCROOT
-#echo DEBUG  : $DEBUG
-#echo ARCH   : $ARCH
-#echo PATH   : $PATH
-
 
 cd $SRCROOT/third-party || exit 1
 

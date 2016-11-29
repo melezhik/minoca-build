@@ -30,10 +30,8 @@ Caveat.
 Before running any build, you should install [Minoca Toolchain](http://www.minocacorp.com/download/minoca-tools-linux.tar.gz) binaries:
 
     $ wget http://www.minocacorp.com/download/minoca-tools-linux.tar.gz
-    $ mkdir minoca-tools
-    $ tar -xzf minoca-tools-linux.tar.gz -C minoca-tools
-    $ PATH=$PATH:$PWD/minoca-tools/src/x86dbg/tools/bin/
-
+    $ mkdir ~/minoca
+    $ tar -xzf minoca-tools-linux.tar.gz -C ~/minoca
 
 Now you are free to run builds:
 
@@ -51,18 +49,20 @@ Now you are free to run builds:
 
 These are default settings for minoca build environment:
 
-    +----------------------+---------------------------+
-    | Variable             | Default Value             |
-    +----------------------+---------------------------+
-    | SRCROOT              | ~/src                     |
-    | DEBUG                | dbg                       |
-    | ARCH                 | x86                       |
-    +--------------------------------------------------+
+    +----------------------+---------------------------------------------------+
+    | Variable             | Default Value                                     |
+    +----------------------+---------------------------------------------------+
+    | SRCROOT              | ~/minoca                                          |
+    | DEBUG                | dbg                                               |
+    | ARCH                 | x86                                               |
+    | TOOLS*               | ~/minoca/src/x86dbg/tools/bin                     |
+    +--------------------------------------------------------------------------+
 
+(*) TOOLS variable sets path to minoca toolchain binaries. 
 
 To override default settings you do:
 
-    $ sparrow plg run minoca-build --param srcroot=/path/to/srcroot/ --param target=os
+    $ sparrow plg run minoca-build --param srcroot=/path/to/srcroot --param tools=/path/to/tools/bin --param target=os
 
 Or ( probably better as could be set once ) create a sparrow task:
 
@@ -73,7 +73,7 @@ Or ( probably better as could be set once ) create a sparrow task:
       srcroot = /my/src/root
       debug   = dbg
       arch    = x86
-
+      tools   = /my/src/x86dbg/tools/bin/      
 
     $ sparrow task run minoca/builder --param target=os
 

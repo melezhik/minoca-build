@@ -1,3 +1,5 @@
+run_story('setenv');
+
 my $target = config()->{target} || [];
 my @targets;
 
