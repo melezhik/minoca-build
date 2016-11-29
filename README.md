@@ -9,7 +9,7 @@ should be treated as substitution of a such. Now it *just works* for me. Minoca-
 low level details of cooking things with `make` which could be safe way to go for unprepared user,
 but if you need to hack into process - please follow [Minoca build scripts](https://github.com/minoca/os#building-minoca-os) documentation.
 
-If you need ready examples, there are some at [examples/](https://github.com/melezhik/minoca-build/blob/master/examples/nano.ini) directory.
+If you need ready examples, there are some at [examples/](https://github.com/melezhik/minoca-build/blob/master/examples) directory.
 
 # INSTALL
 
