@@ -33,3 +33,10 @@ else
 fi
 
 
+if test -f $SRCROOT/$ARCH$DEBUG/tools/bin/perl; then
+
+  echo "disabling" perl from $SRCROOT/$ARCH$DEBUG/tools/bin/ path:
+  mv -v $SRCROOT/$ARCH$DEBUG/tools/bin/perl $SRCROOT/$ARCH$DEBUG/tools/bin/perl.off || exit 1
+
+fi
+

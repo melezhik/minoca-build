@@ -1,4 +1,4 @@
-run_story('setenv');
+run_story('dumpenv');
 
 my $target = config()->{target} || [];
 my @targets;
