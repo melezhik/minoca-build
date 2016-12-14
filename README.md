@@ -157,6 +157,14 @@ for given package:
       target bash-4.3.30-clean
 
 
+## Wipe
+
+If you want start all over the scratch call `wipe` target:
+
+    $ sparrow plg run minoca-build --param target=wipe
+
+This technically call `make wipe` for os repository and `make clean` for third-party repository
+
 ## List available targets
 
 To list all targets you can run:

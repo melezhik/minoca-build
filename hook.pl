@@ -11,6 +11,11 @@ if (ref $target eq 'ARRAY') {
 
 for my $t (@targets) {
 
+  if ( $t eq 'wipe' ){
+    run_story('wipe');
+    next;
+  }
+
   if ( $t eq 'image' ){
     run_story('image');
     next;
