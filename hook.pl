@@ -11,6 +11,11 @@ if (ref $target eq 'ARRAY') {
 
 for my $t (@targets) {
 
+  if ( $t eq 'update-sources' ){
+    run_story('update-sources');
+    next;
+  }
+
   if ( $t eq 'wipe' ){
     run_story('wipe');
     next;

@@ -165,6 +165,13 @@ If you want start all over the scratch call `wipe` target:
 
 This technically call `make wipe` for os repository and `make clean` for third-party repository
 
+## Update sources
+
+This target fetch (via `git pull`) latest update for both os and third-party repository
+
+    $ sparrow plg run minoca-build --param target=update-sources
+
+
 ## List available targets
 
 To list all targets you can run:
